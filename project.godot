@@ -14,11 +14,15 @@ config/name="Dream_Katcher"
 run/main_scene="res://System/Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://System/Global.gd"
+Isometric="*res://System/Isometric.gd"
+
 [display]
 
 window/size/width=960
 window/size/height=540
-window/size/always_on_top=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

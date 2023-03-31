@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Environment/src/ground_ortho.png" type="Texture" id=1]
+[ext_resource path="res://Environment/src/ground_iso.png" type="Texture" id=2]
+
+[node name="Environment" type="Node2D"]
+
+[node name="Orthographic" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+hframes = 4
+
+[node name="Isometric" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -32, 0 )
