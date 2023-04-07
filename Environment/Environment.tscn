@@ -8,9 +8,10 @@
 [node name="Orthographic" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
-hframes = 4
+hframes = 5
 
 [node name="Isometric" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 centered = false
-offset = Vector2( -32, 0 )
+offset = Vector2( -16, 0 )
+hframes = 5
