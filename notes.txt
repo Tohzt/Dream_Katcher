@@ -1,0 +1,52 @@
+STATES
+======
+
+Controller:
+- current_state
+- player (self)
+- move_vector
+- Enum of state nodes
+
+init(self)
+  - Sets player and current_state
+
+change_state(new_state)
+  - triggers exit() in current_state
+  - updates animation controller to new_state
+  - updates current_state to new_state
+  - trigger enter() in current_state
+
+process()
+  - updates move_vector with current_state.move()
+  ? update current_state
+--------------------------------------------------
+
+Base:
+- Enum of states
+? Player
+
+enter(player)
+  - updates Player var
+
+check_state()
+  - return Null as default
+
+move()
+  - returns v2.ZERO as default
+
+exit()
+  - no default functionality
+---------------------------------------------------
+
+Idle:                                 Walk:
+- friction                            - speed
+- is_moving                           - is_moving
+
+move()                                move()
+  - update is_moving                    - updates is_moving
+
+check_state()                         check_state()
+  - trigger state change to Walk        - triggers state change to idel
+  
+                                      exit()
+                                        - disable is_moving

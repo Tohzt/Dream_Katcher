@@ -1,14 +1,16 @@
 extends Node2D
 
-onready var player = load("res://Player/Player.tscn").instance()
-onready var root = get_tree().root.get_node("Game")
-onready var view = get_viewport().get_size()
+onready var z_mod = 10
 
-onready var grid: Vector2 = Vector2(10, 10)
-onready var cell: Vector2 = Vector2(32, 32)
+onready var Player = load("res://Player/Player.tscn").instance()
+onready var Root = get_tree().root.get_node("Game")
+onready var View = get_viewport().get_size()
+
+onready var Grid: Vector2 = Vector2(10, 10)
+onready var Cell: Vector2 = Vector2(32, 32)
 
 # 0-Grass, 2-Sand, 3-Water, 4-Stone
-onready var tilemap = [
+onready var Tilemap = [
 	4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
 	4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 	4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
@@ -20,7 +22,7 @@ onready var tilemap = [
 	4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 	4, 1, 1, 1, 1, 1, 1, 1, 1, 1
 ]
-onready var tileheight = [
+onready var Tileheight = [
 	1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 	1.0, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,
 	1.0, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,
