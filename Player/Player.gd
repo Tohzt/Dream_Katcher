@@ -1,8 +1,10 @@
 extends Node2D
 
-onready var anim_controller = $Animation_Controller
-onready var state_controller = $State_Controller
-onready var anim_sprite: AnimatedSprite = $AnimatedSprite
+var State: Node
+onready var anim_sprite: AnimatedSprite = get_node("AnimatedSprite")
+var anim_loop: bool
+var anim_len: int
+var anim_dur: int
 
 var speed: int = 200
 var velocity: Vector2 = Vector2.ZERO
@@ -15,11 +17,14 @@ var pos_iso: Vector2 = Vector2.ZERO
 var pos_ortho: Vector2 = Vector2(100,100)
 
 func _ready():
-	anim_controller.init(self)
-	state_controller.init(self)
+	for child in get_children():
+		if child.name == "Controller":
+			State = child
+			State.init()
+		# Vulnerability
 
 func _process(delta):
-	state_controller.process(delta)
+	State.process(delta)
 	grid_pos.x = floor(pos_ortho.x / Global.Cell.x)
 	grid_pos.y = floor(pos_ortho.y / Global.Cell.y)
 

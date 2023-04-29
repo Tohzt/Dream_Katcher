@@ -1,4 +1,5 @@
 extends Node
+var setCamera = false
 var tiles = []
 var renderIso: bool = true
 var environment = load("res://Environment/Environment.tscn")
@@ -12,8 +13,9 @@ func get_iso(pos):
 	iso_pos.y = (pos.x + pos.y) * 0.25 + Global.View.y * 0.25
 	return iso_pos
 
-func get_z_index(gx, gy, y):
-	return gx*gy
+func get_z_index(_gx, _gy, _y):
+	return _y
+	#return gx*gy
 	#return x*mod + y*mod + el * 100
 
 func isometric():
