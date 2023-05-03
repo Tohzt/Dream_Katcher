@@ -5,12 +5,14 @@ enum States {
 	IDLE,
 	WALK,
 	DODGE,
+	HURT,
 }
 onready var current = [
 	$ANIM_Base,
 	$STATE_Idle,
 	$STATE_Walk,
 	$STATE_Dodge,
+	$STATE_Hurt,
 ]
 
 onready var Master: Node2D = get_parent()
@@ -45,6 +47,9 @@ func _input(_event):
 	if Render.renderIso:
 		input_direction = input_direction.rotated(deg2rad(-45))
 		input_target_direction = input_target_direction.rotated(deg2rad(-45))
+	
+	if Input.is_action_pressed("ui_select"):
+		pass#change_state(States.HURT)
 
 
 

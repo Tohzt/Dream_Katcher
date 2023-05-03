@@ -1,5 +1,4 @@
 extends Node
-var setCamera = false
 var tiles = []
 var renderIso: bool = true
 var environment = load("res://Environment/Environment.tscn")
@@ -24,12 +23,12 @@ func isometric():
 	var y_index = 0
 	for tile in Global.Tilemap:
 		var ground = environment.instance()
-		var elevation = Global.Tileheight[index]
+		var elevation = Global.Tilemap[index] - floor(Global.Tilemap[index])
 		ground.position = get_iso(Vector2(x_index, y_index)*Global.Cell)
 		ground.z_index = get_z_index(x_index, y_index, ground.position.y)
 		ground.position.y -= elevation*Global.Cell.y # - 16
 		ground.get_node("Isometric").set_frame(tile)
-		ground.get_node("Isometric").set_visible(true)
+		ground.get_node("Isometric").set_visible(tile > 0)
 		ground.get_node("Orthographic").set_visible(false)
 		tiles.append(ground)
 

@@ -15,6 +15,9 @@ var speed_doj = 200
 var is_moving = false
 var is_dodging = false
 
+var knockback: Vector2 = Vector2.ZERO
+var knockback_duration = 10
+
 var doj_timer = 0
 var doj_trigger = 5
 var doj_direction = Vector2.ZERO
@@ -25,6 +28,8 @@ func init(_master, _states, _current, _new_state):
 	master = _master
 	doj_direction = master.velocity
 	dodging = doj_dur
+	knockback = master.velocity.normalized() * -5
+	knockback_duration = knockback.length()
 	current = _current
 	states = _states
 	match _new_state:
@@ -43,6 +48,11 @@ func init(_master, _states, _current, _new_state):
 			master.anim_loop = true
 			master.anim_len = 1
 			master.anim_dur = 30
+		4:
+			master.anim_sprite.animation = "Hurt"
+			master.anim_loop = true
+			master.anim_len = 2
+			master.anim_dur = 4
 
 func detect_roll(move, look):
 	if look:
@@ -76,11 +86,17 @@ func speed_adjust(move, look):
 			master.anim_dur = 10
 
 func collision_check(pos, rec = false):
-	var can_move = true
+	var buffer = Vector2(sign(pos.x) * 10, sign(pos.y) * 10)
 	var next_pos = master.pos_ortho + pos
-	var next_grid_pos = Vector2(floor(next_pos.x / Global.Cell.x), floor(next_pos.y / Global.Cell.y))
+	var next_grid_pos = Vector2(floor((next_pos.x + buffer.x) / Global.Cell.x), floor((next_pos.y + buffer.y) / Global.Cell.y))
 	var next_grid_type = Global.Tilemap[next_grid_pos.x + next_grid_pos.y * Global.Grid.x]
-	var next_elevation = Global.Tileheight[next_grid_pos.x + next_grid_pos.y * Global.Grid.x]
+	var next_elevation = Global.Tilemap[next_grid_pos.x + next_grid_pos.y * Global.Grid.x] - floor(Global.Tilemap[next_grid_pos.x + next_grid_pos.y * Global.Grid.x])
+
+	# Take Damage From Spikes
+	if floor(next_grid_type) == 5 && master.anim_sprite.animation != "Dodge":
+		master.State.change_state(states.HURT)
+		master.take_damage = 10
+		return
 
 	if next_grid_type > 0 && elevation_check(next_elevation):
 		master.pos_ortho = next_pos

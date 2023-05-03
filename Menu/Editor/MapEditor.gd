@@ -31,7 +31,7 @@ func _on_Edit_Current():
 		btn_cell = load("res://Menu/Editor/GridCell.tscn").instance()
 		grid.add_child(btn_cell)
 		_frames.append(cell)
-		_height.append(Global.Tileheight[index])
+		_height.append(Global.Tilemap[index] - floor(Global.Tilemap[index]))
 		index+=1
 	index = 0
 	for cell in grid.get_children():
@@ -41,11 +41,9 @@ func _on_Edit_Current():
 
 func _on_Save_Grid():
 	Global.Tilemap = []
-	Global.Tileheight = []
 	Global.Grid = Vector2(width, height)
 	for cell in grid.get_children():
 		Global.Tilemap.append(cell.frame)
-		Global.Tileheight.append(cell.height)
 
 func _on_SelectAll():
 	for cell in grid.get_children():
@@ -120,7 +118,7 @@ func _on_Template_2():
 			grid.add_child(btn_cell)
 			_type.append(1)
 			if xx == 0 || xx == 5 && yy == 0 || yy == 5:
-				_height.append(0.2)
+				_height.append(0.3)
 			else:
 				_height.append(0.0)
 	index = 0

@@ -1,20 +1,28 @@
 extends Node2D
 
-var State: Node
 onready var anim_sprite: AnimatedSprite = get_node("AnimatedSprite")
+var State: Node
 var anim_loop: bool
 var anim_len: int
 var anim_dur: int
+
+var elevation: float = 0.1
+var elevation_climb: float = 0.2
+var grid_pos = Vector2.ZERO
+var pos_iso: Vector2 = Vector2.ZERO
+var pos_ortho: Vector2 = Vector2(100,100)
 
 var speed: int = 200
 var velocity: Vector2 = Vector2.ZERO
 var target_dir: Vector2 = Vector2.ZERO
 
-var elevation: float = 0.1
-var elevation_climb: float = 0.1
-var grid_pos = Vector2.ZERO
-var pos_iso: Vector2 = Vector2.ZERO
-var pos_ortho: Vector2 = Vector2(100,100)
+var max_heal: float = 100
+var max_mana: float = 100
+var max_stam: float = 100
+var heal: int = max_heal
+var mana: int = max_mana
+var stam: int = max_stam
+var take_damage = 0
 
 func _ready():
 	for child in get_children():

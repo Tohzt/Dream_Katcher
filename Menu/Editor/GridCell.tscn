@@ -13,7 +13,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
-hframes = 5
+hframes = 6
 
 [node name="Selected" type="Sprite" parent="."]
 visible = false
