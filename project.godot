@@ -10,18 +10,30 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
-"class": "ANIMATION",
+"class": "base_animation",
 "language": "GDScript",
-"path": "res://Player/Controller/Anim_Base.gd"
+"path": "res://System/Entity/Base_Animation.gd"
 }, {
 "base": "Node",
-"class": "STATE",
+"class": "base_state",
 "language": "GDScript",
-"path": "res://Player/Controller/State_Base.gd"
+"path": "res://System/Entity/Base_State.gd"
+}, {
+"base": "base_state",
+"class": "companion_state",
+"language": "GDScript",
+"path": "res://Companion/Controller/Base_State.gd"
+}, {
+"base": "base_state",
+"class": "player_state",
+"language": "GDScript",
+"path": "res://Player/Controller/Base_State.gd"
 } ]
 _global_script_class_icons={
-"ANIMATION": "",
-"STATE": ""
+"base_animation": "",
+"base_state": "",
+"companion_state": "",
+"player_state": ""
 }
 
 [application]
@@ -115,6 +127,11 @@ ui_aim_up={
 ui_aim_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":3,"axis_value":1.0,"script":null)
+ ]
+}
+ui_ability_l2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
 

@@ -1,4 +1,4 @@
-extends STATE
+extends player_state
 
 func process(move, look, delta):
 	is_moving = false

@@ -10,7 +10,7 @@ func get_iso(pos):
 	var iso_pos: Vector2 = Vector2.ZERO
 	iso_pos.x = (pos.x - pos.y) * 0.50 + Global.View.x * 0.50
 	iso_pos.y = (pos.x + pos.y) * 0.25 + Global.View.y * 0.25
-	return iso_pos
+	return iso_pos.floor()
 
 func get_z_index(_gx, _gy, _y):
 	return _y
@@ -45,6 +45,7 @@ func orthographic():
 	for tile in Global.Tilemap:
 		var ground = environment.instance()
 		ground.position = Vector2(x_index, y_index)*Global.Cell
+		ground.z_index = 1
 		ground.get_node("Orthographic").set_frame(tile)
 		ground.get_node("Isometric").set_visible(false)
 		ground.get_node("Orthographic").set_visible(true)

@@ -1,4 +1,4 @@
-extends STATE
+extends player_state
 
 func process(_move, look, _delta):
 	knockback_duration -= 1

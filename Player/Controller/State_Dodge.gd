@@ -1,4 +1,4 @@
-extends STATE
+extends player_state
 
 func process(_move, _look, delta):
 	collision_check(doj_direction*delta*master.speed)

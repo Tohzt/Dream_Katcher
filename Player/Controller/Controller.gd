@@ -6,18 +6,20 @@ enum States {
 	WALK,
 	DODGE,
 	HURT,
+	ABILITY,
 }
 onready var current = [
-	$ANIM_Base,
-	$STATE_Idle,
-	$STATE_Walk,
-	$STATE_Dodge,
-	$STATE_Hurt,
+	$Animation,
+	$Idle,
+	$Walk,
+	$Dodge,
+	$Hurt,
+	$Ability,
 ]
 
 onready var Master: Node2D = get_parent()
-var State: STATE
-var Animation: ANIMATION
+var State: player_state
+var Animation: base_animation
 var input_direction: Vector2 = Vector2(0,0)
 var input_target_direction: Vector2 = Vector2(0,0)
 
@@ -50,6 +52,11 @@ func _input(_event):
 	
 	if Input.is_action_pressed("ui_select"):
 		pass#change_state(States.HURT)
+
+	if Input.is_action_just_pressed("ui_ability_l2"):
+		change_state(States.ABILITY)
+	if Input.is_action_just_released("ui_ability_l2"):
+		change_state(States.IDLE)
 
 
 

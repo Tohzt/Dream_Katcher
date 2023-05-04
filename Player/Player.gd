@@ -43,5 +43,5 @@ func _process(delta):
 		z_index = Render.get_z_index(grid_pos.x+1, grid_pos.y+1, pos_iso.y)# + Global.z_mod*2 
 	else:
 		position = pos_ortho
-		z_index = 1
+		z_index = 2
 
