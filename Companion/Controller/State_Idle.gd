@@ -1,8 +1,7 @@
 extends companion_state
 
 func process(_delta):
-	master.target_pos = master.position
-	if master.position.distance_to(Global.Player.position) > 100:
+	if master.pos_ortho.distance_to(master.target_pos) > 50:
 		is_following = true
 
 func check_state() -> int:

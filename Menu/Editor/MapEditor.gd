@@ -25,25 +25,22 @@ func _on_Edit_Current():
 	height = int(Global.Grid.y)
 	clear_grid()
 	var index = 0
-	var _frames = []
-	var _height = []
+	var _value = []
 	for cell in Global.Tilemap:
 		btn_cell = load("res://Menu/Editor/GridCell.tscn").instance()
 		grid.add_child(btn_cell)
-		_frames.append(cell)
-		_height.append(Global.Tilemap[index] - floor(Global.Tilemap[index]))
+		_value.append(Global.Tilemap[index])
 		index+=1
 	index = 0
 	for cell in grid.get_children():
-		cell.update_sprite(_frames[index])
-		cell.height = _height[index]
+		cell.update_sprite(_value[index])
 		index += 1
 
 func _on_Save_Grid():
 	Global.Tilemap = []
 	Global.Grid = Vector2(width, height)
 	for cell in grid.get_children():
-		Global.Tilemap.append(cell.frame)
+		Global.Tilemap.append(cell.value)
 
 func _on_SelectAll():
 	for cell in grid.get_children():
@@ -56,21 +53,23 @@ func _on_Clear():
 func _on_Set_Type():
 	for cell in grid.get_children():
 		if cell.isSelected:
-			cell.update_sprite( (cell.frame + 1) % cell.get_node("Sprite").hframes )
+			cell.update_sprite( (int(cell.value) + 1) % cell.get_node("Sprite").hframes )
 
 func _on_Add_Height():
 	for cell in grid.get_children():
 		if cell.isSelected:
-			if cell.height < 0.9:
-				cell.height += 0.1
+			var _height = cell.value - floor(cell.value)
+			if _height < 0.8:
+				cell.value += 0.1
 				cell.visible = false
 				cell.visible = true
 
 func _on_Sub_Height():
 	for cell in grid.get_children():
 		if cell.isSelected:
-			if cell.height > 0.0:
-				cell.height -= 0.1
+			var _height = cell.value - floor(cell.value)
+			if _height > 0.1:
+				cell.value -= 0.1
 				cell.visible = false
 				cell.visible = true
 

@@ -1,6 +1,7 @@
 class_name base_state
 extends Node
 
+var arrow = preload("res://Projectiles/Arrow.tscn")
 var master: Node2D
 var current
 var states

@@ -7,6 +7,7 @@ enum States {
 	DODGE,
 	HURT,
 	ABILITY,
+	ATTACK,
 }
 onready var current = [
 	$Animation,
@@ -15,6 +16,7 @@ onready var current = [
 	$Dodge,
 	$Hurt,
 	$Ability,
+	$Attack,
 ]
 
 onready var Master: Node2D = get_parent()
@@ -55,9 +57,10 @@ func _input(_event):
 
 	if Input.is_action_just_pressed("ui_ability_l2"):
 		change_state(States.ABILITY)
-	if Input.is_action_just_released("ui_ability_l2"):
-		change_state(States.IDLE)
 
+	if Input.is_action_just_pressed("ui_attack_r2"):
+		Master.anim_play = false
+		change_state(States.ATTACK)
 
 
 

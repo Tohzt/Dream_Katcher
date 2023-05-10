@@ -10,6 +10,7 @@ func get_iso(pos):
 	var iso_pos: Vector2 = Vector2.ZERO
 	iso_pos.x = (pos.x - pos.y) * 0.50 + Global.View.x * 0.50
 	iso_pos.y = (pos.x + pos.y) * 0.25 + Global.View.y * 0.25
+	#TODO: Is this broken?
 	return iso_pos.floor()
 
 func get_z_index(_gx, _gy, _y):

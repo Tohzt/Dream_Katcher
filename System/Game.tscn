@@ -20,7 +20,6 @@ current = true
 script = ExtResource( 5 )
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D"]
-visible = false
 margin_left = -480.0
 margin_top = -270.0
 margin_right = 480.0

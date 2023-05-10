@@ -16,7 +16,9 @@ func process(move, look):
 	if move:
 		update_spriteDirection(move)
 
-	anim_cd-=1
+	#print(frame_offset, " : ", anim_len, " : ", anim_frame)
+	if master.anim_play:
+		anim_cd-=1
 	if anim_cd <= 0:
 		anim_cd = anim_cd_dur
 		anim_updateFrame()

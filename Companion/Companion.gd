@@ -16,9 +16,10 @@ var speed: int = 200
 var velocity: Vector2 = Vector2.ZERO
 var target_dir: Vector2 = Vector2.ZERO
 var target_pos: Vector2
-var target_dist: int = 30
+var target_dist: int = 40
 
 func _ready():
+	target_pos = pos_ortho
 	for child in get_children():
 		if child.name == "Controller":
 			State = child
@@ -32,7 +33,7 @@ func _process(delta):
 	if Render.renderIso:
 		pos_iso = Render.get_iso(pos_ortho)
 		position = pos_iso - Vector2(0,elevation*Global.Cell.y)
-		z_index = Render.get_z_index(grid_pos.x+1, grid_pos.y+1, pos_iso.y)# + Global.z_mod*2 
+		z_index = int(position.y+3)
 	else:
 		position = pos_ortho
 		z_index = 2

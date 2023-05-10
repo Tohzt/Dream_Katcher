@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Controller/Controller.gd" type="Script" id=1]
 [ext_resource path="res://Player/Controller/Base_Animation.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Player/Controller/State_Dodge.gd" type="Script" id=5]
 [ext_resource path="res://Player/Controller/State_Idle.gd" type="Script" id=6]
 [ext_resource path="res://Player/Controller/State_Ability.gd" type="Script" id=7]
+[ext_resource path="res://Player/Controller/State_Attack.gd" type="Script" id=9]
 
 [node name="Controller" type="Node"]
 script = ExtResource( 1 )
@@ -28,3 +29,6 @@ script = ExtResource( 3 )
 
 [node name="Ability" type="Node" parent="."]
 script = ExtResource( 7 )
+
+[node name="Attack" type="Node" parent="."]
+script = ExtResource( 9 )

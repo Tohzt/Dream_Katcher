@@ -3,6 +3,7 @@ extends Node2D
 onready var z_mod = 10
 
 onready var Player = load("res://Player/Player.tscn").instance()
+onready var Companion = load("res://Companion/Companion.tscn").instance()
 onready var Root = get_tree().root.get_node("Game")
 onready var View = get_viewport().get_size()
 

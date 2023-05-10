@@ -5,6 +5,7 @@ var State: Node
 var anim_loop: bool
 var anim_len: int
 var anim_dur: int
+var anim_play = true
 
 var elevation: float = 0.1
 var elevation_climb: float = 0.2
@@ -40,7 +41,7 @@ func _process(delta):
 		pos_iso = Render.get_iso(pos_ortho)
 		#pos_iso.y -= 16
 		position = pos_iso - Vector2(0,elevation*Global.Cell.y)
-		z_index = Render.get_z_index(grid_pos.x+1, grid_pos.y+1, pos_iso.y)# + Global.z_mod*2 
+		z_index = int(position.y)
 	else:
 		position = pos_ortho
 		z_index = 2
