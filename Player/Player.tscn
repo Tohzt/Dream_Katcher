@@ -524,7 +524,7 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.0
-height = 16.0
+height = 6.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )
@@ -534,15 +534,11 @@ position = Vector2( -1, 0 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 18 )
 animation = "Idle"
-frame = 13
-playing = true
-offset = Vector2( 0, -8 )
+frame = 5
 
 [node name="Player_Area" type="Area2D" parent="."]
-visible = false
 
 [node name="Player_Collision" type="CollisionShape2D" parent="Player_Area"]
-position = Vector2( -2, -17 )
 shape = SubResource( 1 )
 
 [node name="Controller" parent="." instance=ExtResource( 4 )]

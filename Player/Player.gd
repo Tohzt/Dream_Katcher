@@ -26,11 +26,9 @@ var stam: int = max_stam
 var take_damage = 0
 
 func _ready():
-	for child in get_children():
-		if child.name == "Controller":
-			State = child
-			State.init()
-		# Vulnerability
+	State = get_node("Controller")
+	State.init()
+	#TODO: Check Foir Vulnerability
 
 func _process(delta):
 	State.process(delta)
@@ -41,7 +39,7 @@ func _process(delta):
 		pos_iso = Render.get_iso(pos_ortho)
 		#pos_iso.y -= 16
 		position = pos_iso - Vector2(0,elevation*Global.Cell.y)
-		z_index = int(position.y)
+		z_index = int(position.y)+20
 	else:
 		position = pos_ortho
 		z_index = 2

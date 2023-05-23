@@ -1,0 +1,147 @@
+[gd_scene load_steps=20 format=3 uid="uid://b18syfd70365d"]
+
+[ext_resource type="Shader" path="res://System/Sky.gdshader" id="1_kbuqf"]
+[ext_resource type="PackedScene" uid="uid://d3ojbd6lrarpf" path="res://Player/player.tscn" id="2_hs8eo"]
+[ext_resource type="Script" path="res://System/CameraController.gd" id="2_mo3mg"]
+[ext_resource type="PackedScene" uid="uid://ch5iyhqyble45" path="res://Environment/Circle.tscn" id="4_jqe2c"]
+[ext_resource type="PackedScene" uid="uid://bctw5vgukqrpo" path="res://Environment/Tree.tscn" id="5_i0cb8"]
+[ext_resource type="PackedScene" uid="uid://b6sbafalosa0l" path="res://Loot/Bow.tscn" id="6_qgpfm"]
+[ext_resource type="PackedScene" uid="uid://dco71ipjpvh1j" path="res://Loot/SwordAndShield.tscn" id="7_pkr2k"]
+[ext_resource type="PackedScene" uid="uid://c5k1h4cy1olb8" path="res://Loot/Longsword.tscn" id="8_mc7p7"]
+[ext_resource type="PackedScene" uid="uid://bpqsqh5ww7on4" path="res://Loot/Staff.tscn" id="9_7n1jx"]
+[ext_resource type="PackedScene" uid="uid://cyy2q034qliya" path="res://Environment/Dummy.tscn" id="10_w4aoy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xb8of"]
+shader = ExtResource("1_kbuqf")
+shader_parameter/skyColor = Color(0.968627, 0.752941, 0.756863, 1)
+shader_parameter/horizonColor = Color(0.0588235, 0.12549, 0.141176, 1)
+
+[sub_resource type="Sky" id="Sky_1vui3"]
+sky_material = SubResource("ShaderMaterial_xb8of")
+
+[sub_resource type="Environment" id="Environment_ym5db"]
+background_mode = 2
+sky = SubResource("Sky_1vui3")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.41
+ambient_light_energy = 1.03
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cditc"]
+points = PackedVector3Array(-10, 0, -10, -10, 0, 10, 10, 0, -10, 10, 0, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qx8cs"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ruc0"]
+albedo_color = Color(0.25098, 0.262745, 0.266667, 1)
+normal_scale = 9.07
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxf5m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_guk5s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnh8m"]
+albedo_color = Color(0.0745098, 0.443137, 0.137255, 1)
+
+[node name="Game" type="Node3D"]
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_hs8eo")]
+
+[node name="Camera" type="Node3D" parent="." groups=["Camera"]]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+script = ExtResource("2_mo3mg")
+def_dist = 4.0
+def_height = 3.0
+def_angle = -30.0
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 3, 4)
+collision_mask = 2
+spring_length = 3.0
+margin = 0.2
+
+[node name="Camera3D" type="Camera3D" parent="Camera/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -5.96046e-07, 4.13288)
+current = true
+fov = 25.4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ym5db")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0893463, 0.76929, -0.632622, 0, 0.635162, 0.772379, 0.996001, -0.0690092, 0.0567494, 0, 25.3161, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.0637145, 0, 0)
+
+[node name="Concrete" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_cditc")
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground/Concrete"]
+mesh = SubResource("PlaneMesh_qx8cs")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_0ruc0")
+
+[node name="Grass" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.499, 0.7)
+shape = SubResource("BoxShape3D_nxf5m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Grass"]
+mesh = SubResource("BoxMesh_guk5s")
+surface_material_override/0 = SubResource("StandardMaterial3D_jnh8m")
+
+[node name="Grass2" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.499, 0.7)
+shape = SubResource("BoxShape3D_nxf5m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Grass2"]
+mesh = SubResource("BoxMesh_guk5s")
+surface_material_override/0 = SubResource("StandardMaterial3D_jnh8m")
+
+[node name="Grass3" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.499, -0.7)
+shape = SubResource("BoxShape3D_nxf5m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Grass3"]
+mesh = SubResource("BoxMesh_guk5s")
+surface_material_override/0 = SubResource("StandardMaterial3D_jnh8m")
+
+[node name="Grass4" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.499, -0.7)
+shape = SubResource("BoxShape3D_nxf5m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Grass4"]
+mesh = SubResource("BoxMesh_guk5s")
+surface_material_override/0 = SubResource("StandardMaterial3D_jnh8m")
+
+[node name="Statue" parent="." instance=ExtResource("4_jqe2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+
+[node name="Tower" parent="." instance=ExtResource("5_i0cb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -12)
+
+[node name="Loot" type="Node3D" parent="."]
+
+[node name="SwordAndShield" parent="Loot" instance=ExtResource("7_pkr2k")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -3.10689, 0, -0.911664)
+
+[node name="Bow" parent="Loot" instance=ExtResource("6_qgpfm")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.943241, 0, -2.81724)
+
+[node name="Bow2" parent="Loot" instance=ExtResource("8_mc7p7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21771, 0, -1.64724)
+
+[node name="Bow3" parent="Loot" instance=ExtResource("9_7n1jx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39972, 0, -4.27528)
+
+[node name="Dummy" parent="." instance=ExtResource("10_w4aoy")]
+transform = Transform3D(-0.302642, 0, -0.353553, 0, 0.46, 0, 0.302642, 0, -0.353553, -2.62305, 3.57628e-07, -2.51175)
+
+[connection signal="area_entered" from="Loot/Bow" to="Player" method="_on_bow"]
+
+[editable path="Statue"]

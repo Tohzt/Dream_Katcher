@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3mqaf784tsy0"]
+
+[ext_resource type="PackedScene" uid="uid://dsoqmn0hdipwh" path="res://Environment/Assets/cube.blend" id="1_w2cyf"]
+
+[node name="Wood_Floor" type="Node3D"]
+
+[node name="cube" parent="." instance=ExtResource("1_w2cyf")]
+
+[editable path="cube"]

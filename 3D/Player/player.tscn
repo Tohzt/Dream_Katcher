@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3ojbd6lrarpf"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_e4oyg"]
+[ext_resource type="PackedScene" uid="uid://cfsoxbr5v7dml" path="res://Player/Controller/controller.tscn" id="3_d34oo"]
+[ext_resource type="PackedScene" uid="uid://bwnbqrf6b0vi0" path="res://Player/Animations.tscn" id="3_ealvc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cane"]
+radius = 0.155372
+height = 0.995328
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_e4oyg")
+
+[node name="PlayerController" parent="." instance=ExtResource("3_d34oo")]
+
+[node name="PlayerAnimation" parent="." instance=ExtResource("3_ealvc")]
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_0cane")

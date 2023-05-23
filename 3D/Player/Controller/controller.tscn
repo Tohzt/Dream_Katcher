@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfsoxbr5v7dml"]
+
+[ext_resource type="Script" path="res://Player/Controller/controller.gd" id="1_xrw21"]
+[ext_resource type="Script" path="res://Player/Controller/Idle.gd" id="2_sgtwo"]
+[ext_resource type="Script" path="res://Player/Controller/Walk.gd" id="3_du0tb"]
+[ext_resource type="Script" path="res://Player/Controller/Jump.gd" id="4_wvinr"]
+[ext_resource type="Script" path="res://Player/Controller/Fall.gd" id="5_eoa5r"]
+[ext_resource type="Script" path="res://Player/Controller/Attack.gd" id="6_lfem4"]
+[ext_resource type="Script" path="res://Player/Controller/Block.gd" id="7_lwrjy"]
+
+[node name="Controller" type="Node3D"]
+script = ExtResource("1_xrw21")
+
+[node name="Idle" type="Node3D" parent="."]
+script = ExtResource("2_sgtwo")
+
+[node name="Walk" type="Node3D" parent="."]
+script = ExtResource("3_du0tb")
+
+[node name="Jump" type="Node3D" parent="."]
+script = ExtResource("4_wvinr")
+
+[node name="Fall" type="Node3D" parent="."]
+script = ExtResource("5_eoa5r")
+
+[node name="Attack" type="Node3D" parent="."]
+script = ExtResource("6_lfem4")
+
+[node name="Block" type="Node3D" parent="."]
+script = ExtResource("7_lwrjy")

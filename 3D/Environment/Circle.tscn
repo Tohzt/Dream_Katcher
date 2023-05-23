@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch5iyhqyble45"]
+
+[ext_resource type="PackedScene" uid="uid://dsoqmn0hdipwh" path="res://Environment/Assets/cube.blend" id="1_dpy31"]
+
+[node name="cube" instance=ExtResource("1_dpy31")]

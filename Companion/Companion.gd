@@ -20,10 +20,8 @@ var target_dist: int = 40
 
 func _ready():
 	target_pos = pos_ortho
-	for child in get_children():
-		if child.name == "Controller":
-			State = child
-			State.init()
+	State = get_node("Controller")
+	State.init()
 
 func _process(delta):
 	State.process(delta)

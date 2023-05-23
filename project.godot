@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "base_animation",
 "language": "GDScript",
-"path": "res://System/Entity/Base_Animation.gd"
+"path": "res://Entity/Base_Animation.gd"
 }, {
 "base": "Node",
 "class": "base_state",
 "language": "GDScript",
-"path": "res://System/Entity/Base_State.gd"
+"path": "res://Entity/Base_State.gd"
 }, {
 "base": "base_state",
 "class": "companion_state",
@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "player_state",
 "language": "GDScript",
 "path": "res://Player/Controller/Base_State.gd"
+}, {
+"base": "base_state",
+"class": "projectile_state",
+"language": "GDScript",
+"path": "res://Projectiles/Controller/Base_State.gd"
 } ]
 _global_script_class_icons={
 "base_animation": "",
 "base_state": "",
 "companion_state": "",
-"player_state": ""
+"player_state": "",
+"projectile_state": ""
 }
 
 [application]

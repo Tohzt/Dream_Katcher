@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://bctw5vgukqrpo"]
+
+[ext_resource type="PackedScene" uid="uid://bfu556mqw67iw" path="res://Environment/Wall_Block.tscn" id="1_wibn8"]
+
+[node name="Tree" type="Node3D"]
+
+[node name="WallMesh" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(0.00996475, 0, -0.0999996, 0, 1.235, 0, 3.6847, 0, 0.000270486, -4.16643, 0.6, 3.52138)
+skeleton = NodePath("../..")
+
+[node name="WallMesh3" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(0.00665407, 0, -0.0999996, 0, 1.231, 0, 2.459, 0, 0.000270486, -6.86936, 0.6, 3.77195)
+skeleton = NodePath("../..")
+
+[node name="WallMesh4" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-2.459, 0, -0.000270486, 0, 1.231, 0, 0.00665407, 0, -0.0999996, -6.24303, 0.6, 5.3196)
+skeleton = NodePath("../..")
+
+[node name="WallMesh5" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-2.46999, 0, -0.000270486, 0, 1.237, 0, 0.00668059, 0, -0.0999996, -5.31365, 0.6, 3.13987)
+skeleton = NodePath("../..")
+
+[node name="WallMesh6" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-2.46999, 0, -0.000270486, 0, 1.237, 0, 0.00668059, 0, -0.0999996, -5.31365, 0.6, 3.13987)
+skeleton = NodePath("../..")
+
+[node name="WallMesh7" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-1.29134, 0, -0.00381949, 0, 0.908943, 0, 0.0034932, 0, -1.41219, -4.53772, 0.337904, 2.72265)
+skeleton = NodePath("../..")
+
+[node name="WallMesh16" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-1.29134, 0, -0.00381949, 0, 0.908943, 0, 0.0034932, 0, -1.41219, -3.46679, 0.270303, 5.40395)
+skeleton = NodePath("../..")
+
+[node name="WallMesh17" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-0.953338, 0, -0.43825, 0, 0.708534, 0, 0.640447, 0, -0.652357, -3.19366, -0.0087682, 7.02162)
+skeleton = NodePath("../..")
+
+[node name="WallMesh8" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-4.25017, 0, -0.00938752, 0, 0.370411, 0, 0.0114956, 0, -3.46934, -2.14637, 0.874292, 4.3092)
+skeleton = NodePath("../..")
+
+[node name="WallMesh9" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-1.61191, 0, -0.00426709, 0, 3.53182, 0, 0.00435974, 0, -1.57736, -2.14637, 2.76087, 4.3092)
+skeleton = NodePath("../..")
+
+[node name="WallMesh10" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-0.847107, 0, -0.00231609, 0, 0.165412, 0, 0.00229138, 0, -0.856138, -3.248, 4.44837, 4.79658)
+skeleton = NodePath("../..")
+
+[node name="WallMesh11" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-0.847107, 0, -0.00231609, 0, 0.165412, 0, 0.00229138, 0, -0.856138, -1.68394, 3.3665, 5.46346)
+skeleton = NodePath("../..")
+
+[node name="WallMesh12" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-0.847107, 0, -0.00231609, 0, 0.165412, 0, 0.00229138, 0, -0.856138, -0.967487, 2.16174, 3.75763)
+skeleton = NodePath("../..")
+
+[node name="WallMesh13" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-1.45611, -0.0460801, 0.0497916, -1.11468, 0.0572096, -0.148451, 0.169336, -0.0196472, -0.549046, -1.98169, 1.60045, 3.3252)
+skeleton = NodePath("../..")
+
+[node name="WallMesh14" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(-0.169292, 0.0196449, 0.549052, -1.11456, 0.0572149, -0.148433, -1.45622, -0.0460746, 0.0497772, -1.27477, 2.8254, 4.45601)
+skeleton = NodePath("../..")
+
+[node name="WallMesh15" parent="." instance=ExtResource("1_wibn8")]
+transform = Transform3D(1.45622, 0.0460746, -0.0497772, -1.11456, 0.0572149, -0.148433, -0.169292, 0.0196449, 0.549052, -2.20264, 3.89521, 5.14749)
+skeleton = NodePath("../..")
