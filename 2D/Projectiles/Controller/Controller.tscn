@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Projectiles/Controller/Base_Animation.gd" type="Script" id=1]
+[ext_resource path="res://Projectiles/Controller/State_Fly.gd" type="Script" id=2]
+[ext_resource path="res://Projectiles/Controller/State_Knock.gd" type="Script" id=3]
+[ext_resource path="res://Projectiles/Controller/State_Stuck.gd" type="Script" id=4]
+[ext_resource path="res://Projectiles/Controller/State_Break.gd" type="Script" id=5]
+
+[node name="Controller" type="Node"]
+
+[node name="Animation" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Knock" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Fly" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Stuck" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Break" type="Node" parent="."]
+script = ExtResource( 5 )
