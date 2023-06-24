@@ -8,7 +8,7 @@ pain. His ribs felt as if he'd been kicked by a horse and above his right eye
 began a line of blood that ran down the length of his cheek. The wounds felt 
 familiar to him but along with the memories of the newly disturbed dream, the 
 pain quickly faded away. By morning all that remained was a spot of blood on his 
-pillow-case and an itching desire to know where it had come from and, most of 
+pillowcase and an itching desire to know where it had come from and, most of 
 all,  whose voice it had been that woke him.
 
 	The next morning started out like any other. Katcher woke alone in his cabin, 
@@ -34,8 +34,6 @@ when it arrives.
 /* Note the perspective shift from 'was coming' to 'the world needs'. I want to 
 hint to the idea that the narration is coming from a point in the future, but 
 some time before "the Arrival" */
-/* Also, what the hell is arriving?  That had nohting to do with my original 
-storyline, haha */
 
 	"Katcher! Wake Up!.....".
 Katcher snapped out of his meditation. There was that voice again. And with it, 
@@ -53,7 +51,6 @@ short meditation session meant for more time that Katcher could be working.
 with the craftsmanship of a master woodsmith.  The four corners of the structure 
 were attached firmly  to the trunks of nearby trees, and in the 5 years of it's 
 existance, the cabin had been lifted nearly a foot off the ground.
-/* How fast can trees grow? */
 Doorways, windowframes, gables and interior-supports were crafted from a 
 beautifully dark wood that Katcher had found on the far side of the river, a 
 mile to the south. It took Katcher all three months, while the river was low, to 
